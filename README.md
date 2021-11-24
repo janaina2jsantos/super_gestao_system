@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## About Laravel
+## About Super Gestão
 
 Super Gestão is a simple web system made with Laravel. This is a system made with the purpose to pratice things like CRUD, middlewares, authentication, markdown mailables,etc. There wasn't much concern about Front-end at this moment. How to use:
 
