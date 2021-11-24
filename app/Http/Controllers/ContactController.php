@@ -39,7 +39,7 @@ class ContactController extends Controller
         $email =$contact->email;
         $message = $contact->message; 
 
-        Mail::to('janaina2jsantos@gmail.com')->send(new \App\Mail\SiteContact($reason, $name, $phone, $email, $message));
+        Mail::to('your_email@gmail.com')->send(new \App\Mail\SiteContact($reason, $name, $phone, $email, $message));
 
         return redirect()->route('site.index', ['msg' => 'Contact registered successfully. Our team will return soon!']);
     }
