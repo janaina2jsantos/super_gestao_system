@@ -38,7 +38,7 @@ class ClientController extends Controller
      */
     public function store(ClientRequest $request)
     {
-        // pega tudo que vem do request e faz a inserção no banco
+        // gettin all coming from request and saving in database
         $data = $request->all();
         Client::create($data);
         return redirect()->route('app.clients.index', ['msg' => 'Customer registered successfully!']);

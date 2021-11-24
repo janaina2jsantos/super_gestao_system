@@ -59,7 +59,6 @@ Route::group(['middleware' => ['my.log', 'my.auth'], 'prefix' => '/app'], functi
     // order-product
     Route::get('/order-product/create/{id}', 'OrderProductController@create')->name('app.order-product.create');
     Route::post('/order-product/create/{id}', 'OrderProductController@store')->name('app.order-product.store');
-    // Route::delete('/order-product/delete/{order}/{product}', 'OrderProductController@destroy')->name('app.order-product.destroy');
     Route::delete('/order-product/delete/{idOrderProduct}/{idOrder}', 'OrderProductController@destroy')->name('app.order-product.destroy');
 
     // products
@@ -87,49 +86,5 @@ Route::group(['middleware' => ['my.log', 'my.auth'], 'prefix' => '/app'], functi
 
 });
 
-
 // ==========================================================================
 
-// ** Redirect de rotas
-
-// Route::get('/rota01', function() {
-       
-//     echo "Rota 01";
-
-// })->name('site.rota01');
-
-// Route::get('/rota02', function() {
-      
-//     return redirect()->route('site.rota01');
-
-// })->name('site.rota02');
-
-// Route::redirect('/rota02', '/rota01');
-
-
-// ==========================================================================
-
-// ** Rotas com parâmetros
-
-// nome, categoria, assunto, msg
-// Route::get('/contato/{nome}/{categoria}/{assunto?}', function(string $nome, string $categoria, string $assunto='default') {
-//     echo "Agradecemos o contato, " . $nome . " - " . $categoria . " - " . $assunto;
-// });
-
-
-// Route::get('/contato/{nome}/{categoria_id}', function(string $nome, int $categoria_id = 1) {
-
-//     echo "Agradecemos o contato, " . $nome . " - " . $categoria_id;
-
-// })->where('nome', '[A-Za-z]+') // aceitar só caracteres
-//   ->where('categoria_id', '[0-9]+'); // aceitar só números
-
-Route::get('/teste/{p1}/{p2}', 'TesteController@index')->name('site.teste');
-
-
-// ==========================================================================
-
-// ** Rota de FallBack (customizar erro 404)
-Route::fallback(function() {
-    return "Essa página não existe! <a href='/'>Clique aqui para voltar.</a>";
-});

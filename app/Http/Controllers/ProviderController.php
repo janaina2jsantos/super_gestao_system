@@ -126,9 +126,7 @@ class ProviderController extends Controller
     public function destroy($id) {
         $msg = "";
         $provider = Provider::findOrFail($id)->delete();
-        // $provider = Fornecedor::findOrFail($id)->forceDelete();
         $msg = "Provider deleted successfully!";
-
         return redirect()->route('app.providers.index', compact('msg'));
     }
 }

@@ -55,15 +55,7 @@ class OrderProductController extends Controller
         $request->validate($rules, $messages);
 
         $order = Order::findOrFail($id);
-        // salvando na tabela pivot com attach
-        // * obs: para salvar no banco o created_at e updated_at tem que colocar esses campos no Model withPivot (ver Model Order relacionamento products)
         $order->products()->attach($request->get('product_id'), ['quantity' => $request->get('quantity')]);
-
-        // $pedidoProduto = new PedidoProduto();
-        // $pedidoProduto->pedido_id  = $pedido->id;
-        // $pedidoProduto->produto_id = $request->get('produto_id');
-        // $pedidoProduto->quantidade = $request->get('quantidade');
-        // $pedidoProduto->save();
         return redirect()->route('app.order-product.create', ['id' => $order->id, 'msg' => 'Product added to order succesfully!']);
     }
 
@@ -109,17 +101,6 @@ class OrderProductController extends Controller
      */
     public function destroy($idOrderProduct, $idOrder)
     {
-        // public function destroy(PedidoProduto $pedido, Produto $produto)
-        // echo $pedido->id . ' - ' . $produto->id;
-
-        // convencional
-        // PedidoProduto::where([
-        //     'pedido_id'  => $pedido->id,
-        //     'produto_id' => $produto->id
-        // ])->delete();
-
-        // detach
-        // $pedido->produtos()->detach($produto->id);
         $orderProduct = OrderProduct::findOrFail($idOrderProduct);
         $orderProduct->delete();
         return redirect()->route('app.order-product.create', ['id' => $idOrder, 'msg' => 'Item deleted successfully!']);

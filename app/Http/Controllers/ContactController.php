@@ -30,7 +30,6 @@ class ContactController extends Controller
         $contact->phone = $request->input('phone');
         $contact->email = $request->input('email');
         $contact->message = $request->input('message');
-        // print_r($contact->getAttributes());
         $contact->save();
 
         $reason = $contact->contact_reason_id;
@@ -39,7 +38,7 @@ class ContactController extends Controller
         $email =$contact->email;
         $message = $contact->message; 
 
-        Mail::to('janaina2jsantos@gmail.com')->send(new \App\Mail\SiteContact($reason, $name, $phone, $email, $message));
+        Mail::to('your_email@gmail.com')->send(new \App\Mail\SiteContact($reason, $name, $phone, $email, $message));
 
         return redirect()->route('site.index', ['msg' => 'Contact registered successfully. Our team will return soon!']);
     }
