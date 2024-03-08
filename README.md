@@ -9,7 +9,7 @@
 
 ## About Super Gestão
 
-Super Gestão is a simple web system made with Laravel. This is a system made with the purpose to pratice things like CRUD, middlewares, authentication, markdown mailables,etc. There wasn't much concern about Front-end at this moment. How to use:
+This is a simple web system built with Laravel. The purpose of this system is to practice CRUD operations, middlewares, authentication, markdown mailables, etc. At this stage, there wasn't much emphasis on the front-end. Follow the steps below to run the system:
 
 - Create the database.
 - Run the migrations.
